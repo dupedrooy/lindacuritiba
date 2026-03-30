@@ -4,10 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L.I.N.D.A. - Digital Education Transformation</title>
+
     <script type="module" crossorigin src="./assets/index-Crte7nzI.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BHRp9Roi.css">
+
   </head>
   <body>
+
+    <!-- Botões de idioma -->
+    <div style="position:fixed; top:20px; right:20px; z-index:9999; display:flex; gap:10px;">
+      <img src="https://flagcdn.com/w40/br.png" width="32" style="cursor:pointer" onclick="translatePage('pt')" title="Português">
+      <img src="https://flagcdn.com/w40/us.png" width="32" style="cursor:pointer" onclick="translatePage('en')" title="English">
+    </div>
+
+    <div id="google_translate_element" style="display:none;"></div>
+
     <div id="root"></div>
+
+    <script>
+      function translatePage(lang){
+        var select = document.querySelector(".goog-te-combo");
+        if(select){
+          select.value = lang;
+          select.dispatchEvent(new Event("change"));
+        }
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+      function googleTranslateElementInit(){
+        new google.translate.TranslateElement({
+          pageLanguage:'en',
+          includedLanguages:'en,pt'
+        }, 'google_translate_element');
+      }
+    </script>
+
   </body>
 </html>
